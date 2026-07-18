@@ -540,34 +540,24 @@ body::before {
 }
 
 /* ==================== التجاوب مع شاشات الموبايل (Responsive) ==================== */
-@media (max-width: 768px) { /* تم التصحيح من 90px إلى 768px */
-    /* تعديلات إضافية لضبط الواجهة على الموبايل */
 @media (max-width: 768px) {
-    .hero-content {
-        width: 100%;       /* إجبار المحتوى ياخد عرض الشاشة بالكامل */
-        text-align: center; /* إجبار النص يكون في المنتصف */
-        padding: 0 15px;    /* مسافة أمان من الجوانب عشان الكلام ما يلمس حافة الموبايل */
-        box-sizing: border-box; /* عشان البادينج ما يزودش حجم العنصر */
-    }
-
-    /* التأكد من أن النصوص كلها في المنتصف */
-    .hero h1, .hero p {
-        text-align: center;
-        width: 100%;
-    }
-}
     /* الهيدر واللوجو */
     header {
-        padding: 10px 20px;
+        padding: 10px 15px;
         justify-content: center;
     }
     
     .logo img {
-        height: 75px; /* حجم متناسق مع الموبايل */
+        height: 40px; /* صغرنا اللوجو اللي فوق جداً عشان يكون شيك وماياخدش مساحة */
     }
     
+    .header-logo-link {
+        flex-direction: row; /* خلينا الأيقونة جنب اللوجو بدل ما هي تحته */
+        gap: 8px;
+    }
+
     .wa-text {
-        font-size: 1rem;
+        display: none; /* خفينا كلمة "تواصل معنا" من الهيدر لأن الزرار الذهبي العائم تحت بيقوم بالواجب */
     }
     
     .header-wa-contact-large svg {
@@ -575,22 +565,33 @@ body::before {
         height: 22px;
     }
 
-    /* الواجهة الرئيسية */
+    /* الواجهة الرئيسية (Hero) */
+    .hero-content {
+        width: 100%;
+        text-align: center;
+        padding: 0 15px;
+        margin-top: 60px; /* نزلنا المحتوى تحت عشان الهيدر مايغطيش عليه */
+        box-sizing: border-box;
+    }
+
     .hero-logo img {
-        max-width: 180px;
+        max-width: 130px; /* صغرنا لوجو المنتصف شوية ليتناسق مع الشاشة */
+        margin-bottom: 15px;
     }
 
     .hero h1 {
-        font-size: 2.2rem;
+        font-size: 1.8rem; /* صغرنا العنوان سيكا عشان مايتقطعش في الموبايل */
+        line-height: 1.4;
     }
     
     .hero p {
         font-size: 1rem;
+        margin-bottom: 30px;
     }
     
-    /* شاشة التحميل (لكي لا تخرج النصوص عن الشاشة) */
+    /* شاشة التحميل */
     .preloader-text {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         letter-spacing: 5px;
     }
 
@@ -614,65 +615,5 @@ body::before {
     /* إخفاء الماوس المخصص لأن الهواتف تعمل باللمس */
     .cursor-dot, .cursor-outline {
         display: none;
-    }
-}
-/* ==================== زر واتساب العائم الذهبي ==================== */
-.floating-gold-wa {
-    position: fixed;
-    bottom: 30px;
-    left: 30px; /* وضعناه في اليسار ليكون بارزاً ولا يتعارض مع شريط التمرير */
-    background: linear-gradient(45deg, #B38728, #FBF5B7, #BF953F); /* التدرج الذهبي الفخم */
-    color: #000000; /* لون أسود للنص والأيقونة ليبرز بقوة فوق الذهبي */
-    padding: 12px 25px;
-    border-radius: 50px; /* شكل بيضاوي أنيق */
-    text-decoration: none;
-    z-index: 10000;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    animation: pulseGoldWA 2s infinite; /* حركة النبض */
-}
-
-.wa-gold-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px; /* مسافة بين الكلمة والأيقونة */
-}
-
-.wa-gold-content span {
-    font-weight: 800;
-    font-size: 1.2rem;
-    letter-spacing: 0.5px;
-}
-
-/* التأثير عند مرور الماوس */
-.floating-gold-wa:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.6);
-    color: #000000;
-}
-
-/* حركة النبض الذهبي للإشعاع */
-@keyframes pulseGoldWA {
-    0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
-    70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
-}
-
-/* التجاوب مع شاشات الموبايل */
-@media (max-width: 768px) {
-    .floating-gold-wa {
-        bottom: 20px;
-        left: 20px;
-        padding: 10px 20px;
-    }
-    
-    .wa-gold-content span {
-        font-size: 1rem;
-    }
-    
-    .wa-gold-content svg {
-        width: 22px;
-        height: 22px;
     }
 }
