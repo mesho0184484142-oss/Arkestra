@@ -17,10 +17,12 @@
     scroll-behavior: smooth;
 }
 
-body {
+html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden; /* السر هنا: يمنع أي حركة يمين أو شمال نهائياً */
     background-color: var(--bg-color);
     color: var(--text-light);
-    overflow-x: hidden;
 }
 
 /* ==================== شريط التنقل (Navbar) ==================== */
