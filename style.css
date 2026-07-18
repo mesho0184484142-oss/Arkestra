@@ -619,3 +619,63 @@ body::before {
         display: none;
     }
 }
+/* ==================== زر واتساب العائم الذهبي ==================== */
+.floating-gold-wa {
+    position: fixed !important;
+    bottom: 30px !important;
+    left: 30px !important;
+    background: linear-gradient(45deg, #B38728, #FBF5B7, #BF953F) !important;
+    color: #000000 !important;
+    padding: 12px 25px !important;
+    border-radius: 50px !important;
+    text-decoration: none !important;
+    z-index: 999999 !important; /* أعلى طبقة في الموقع لضمان الظهور */
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4) !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation: pulseGoldWA 2s infinite !important;
+}
+
+.wa-gold-content {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.wa-gold-content span {
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+.floating-gold-wa:hover {
+    transform: translateY(-5px) scale(1.05) !important;
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.6) !important;
+}
+
+@keyframes pulseGoldWA {
+    0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
+
+/* تجاوب الزرار مع شاشات الموبايل */
+@media (max-width: 768px) {
+    .floating-gold-wa {
+        bottom: 20px !important;
+        left: 20px !important;
+        padding: 10px 20px !important;
+    }
+    
+    .wa-gold-content span {
+        font-size: 1rem;
+    }
+    
+    .wa-gold-content svg {
+        width: 22px;
+        height: 22px;
+    }
+}
