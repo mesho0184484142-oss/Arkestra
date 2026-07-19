@@ -138,3 +138,33 @@ window.addEventListener('scroll', () => {
     // تطبيق النسبة المئوية على عرض الشريط
     progressBar.style.width = scrolled + "%";
 });
+document.addEventListener("DOMContentLoaded", () => {
+    // كود تشغيل الأسئلة الشائعة (FAQ)
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            // إغلاق أي سؤال آخر مفتوح
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                }
+            });
+
+            // فتح أو إغلاق السؤال الحالي
+            item.classList.toggle('active');
+            const answer = item.querySelector('.faq-answer');
+            
+            if (item.classList.contains('active')) {
+                // إعطاء الإجابة الطول الحقيقي بتاعها عشان تفتح
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            } else {
+                // إخفاء الإجابة
+                answer.style.maxHeight = null;
+            }
+        });
+    });
+});
